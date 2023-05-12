@@ -159,7 +159,7 @@ export default function Home() {
       </div>
       {/* ABOUT */}
       <fieldset id='about' className="section w-full min-h-[50vh] bg-slate-200 dark:bg-[#102236] pb-16">
-        <legend className="text-center">
+        <legend className="text-center w-full">
           <div className="w-full flex flex-col items-center justify-center relative">
             <div className="section-tag bg-white dark:bg-slate-200 border-slate-200 dark:border-[#102236]">
               <IdentificationIcon className="w-8 h-8 lg:w-10 lg:h-10 text-cyan-800" />
