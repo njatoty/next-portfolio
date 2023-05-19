@@ -7,9 +7,9 @@ import pl from './images/pl.png'
 import cimage from './images/contact.png'
 import Image from "next/image";
 import { FaCode, FaEnvelope, FaFacebook, FaGithub, FaLinkedin, FaTimes } from 'react-icons/fa';
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import WorkItem from "./components/WorkItem";
-import {Input, Form} from "./components/Input";
+import { Form } from "./components/Input";
 import SocialMediaLink from "./components/SocialMediaLink";
 import ThemeSwitcherButton from "./components/ThemeSwitcherButton";
 
@@ -25,7 +25,7 @@ export default function Home() {
     backgroundImage: `url("/linelr.svg")`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    backgroundPosition: 'center'
+    backgroundPosition: ''
   }
   
   const bgImageContact = {
@@ -41,20 +41,6 @@ export default function Home() {
     setIsOpen(!isOpen);
   }
 
-  const aboutRef = useRef(null);
-
-  useEffect(() => {
-    // const observer = new IntersectionObserver(entries => {
-    //   const [entry] = entries;
-    //   console.log(entry.target)
-    // }, { threshold: 1, root: null, rootMargin: '0px' });
-    // if (aboutRef.current) observer.observe(aboutRef.current);
-    // return () => {
-    //   if (aboutRef.current) observer.unobserve(aboutRef.current);
-    // }
-  }, []);
-  
-
   return (
     
     <main className="flex min-h-screen flex-col items-center justify-between bg-white dark:bg-slate-900 overflow-x-hidden">
@@ -64,6 +50,9 @@ export default function Home() {
           <FaCode className="w-8 h-8 md:w-12 md:h-12 text-cyan-600"/>
         </div>
         <div className="menu hidden sm:flex">
+          <LinkScroll to="home" smooth={true} spy={true} offset={-100} duration={500} className="menu-item">
+            Home
+          </LinkScroll>
           <LinkScroll to="about" smooth={true} spy={true} offset={-100} duration={500} className="menu-item">
             About
           </LinkScroll>
@@ -135,7 +124,7 @@ export default function Home() {
         </div>
       </div>
       {/* Header section */}
-      <div id="home" className="section w-full min-h-screen flex items-center justify-center" style={bgImageStyle}>
+      <div id="home" className="section w-full min-h-[850px] h-screen flex items-center justify-center" style={bgImageStyle}>
         <div className="flex items-center flex-col justify-center mt-6">
           <p className="text-slate-500 dark:text-slate-300 text-xl sm:text-2xl lg:text-3xl mb-3 font-thin">Hello, I am <span className="text-cyan-700 font-semibold">Njatotiana</span></p>
           <h1 className="text-center text-4xl sm:text-5xl xl:text-6xl text-slate-700 dark:text-slate-100 px-10">A Full stack Web Developer</h1>
@@ -159,7 +148,7 @@ export default function Home() {
       </div>
       {/* ABOUT */}
       <fieldset id='about' className="section w-full min-h-[50vh] bg-slate-200 dark:bg-[#102236] pb-16">
-        <legend className="text-center">
+        <legend className="text-center w-full">
           <div className="w-full flex flex-col items-center justify-center relative">
             <div className="section-tag bg-white dark:bg-slate-200 border-slate-200 dark:border-[#102236]">
               <IdentificationIcon className="w-8 h-8 lg:w-10 lg:h-10 text-cyan-800" />
@@ -320,13 +309,13 @@ export default function Home() {
         <div className="px-1 md:px-12" style={bgImageSkill}>
             <h1 className="text-cyan-800 dark:text-cyan-200/50 text-center mx-auto italic text-xl lg:text-2xl">Contact</h1>
             <div className="py-16">
-              <div className="flex flex-col items-center gap-1">
+              <div className="flex flex-col items-center gap-0">
                 <div className=" box w-full text-center">
                   <h1 className="text-2xl text-cyan-600 uppercase">Get in touch</h1>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-0 w-full">
                   <div className="flex items-center justify-center">
-                    <div className="box">
+                    <div className="box"> 
                       <div className="img p-6 flex items-center justify-center">
                         <Image src={cimage} alt="" className="" width={250} height={200}/>
                       </div>
@@ -348,6 +337,7 @@ export default function Home() {
             </div>
         </div>
       </fieldset>
+      {/* footer */}
       <footer className=" bg-slate-100 dark:bg-slate-900 py-4 lg:py-8 border-t border-slate-200 dark:border-slate-700/60 w-full text-slate-00 dark:text-slate-200 text-center">
         Copyright&copy; 2023
       </footer>
