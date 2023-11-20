@@ -3,6 +3,7 @@ import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import React, { useEffect, useState } from 'react'
 import { FaCheck, FaExclamationTriangle, FaFly, FaPaperPlane, FaTimesCircle } from 'react-icons/fa';
 import { sendContactForm } from '../config/contact';
+import Emailjs from '@emailjs/browser'
 
 type Props = {
     label: string,
@@ -93,6 +94,7 @@ export function Form() {
     const [emailReq, setEmailReq] = useState(false);
     const [messageReq, setMessageReq] = useState(false);
     const [subjectReq, setSubjectReq] = useState(false);
+    const [isSending, setIsSending] = useState(false);
 
     function isValidEmail(address: string) {
         return !! address.match(/.+@.+/);
@@ -125,12 +127,24 @@ export function Form() {
         setEmailReq(!isValidEmail(email));
         setMessageReq(message.length < 30 );
         setSubjectReq(subject.length <= 0);
+        setIsSending(true);
 
+        const templateParams = {
+            user_name: name,
+            user_email: email,
+            user_subject: subject,
+            message: message
+        }
         if (valid) {
-            const data = {
-                subject, name, email, message
-            }
-            await sendContactForm(data);
+            // await sendContactForm(data);
+            Emailjs.send('service_37ngg9a', 'template_nydzllt', templateParams, 'JYhYB-wJoLEFWEvhU')
+            .then((result) => {
+                alert("message sent")
+            }).catch(err => {
+                console.log(err)
+            }).finally(() => {
+                setIsSending(false);
+            });
         }
     }
     return (
@@ -140,13 +154,15 @@ export function Form() {
                 successMessage='Your name is valid'
                 invalidMessage='Enter more than 1 character'
                 warningMessage='Please enter your full name'
-                />
+            />
+
             <Input required={emailReq} valid={isValidEmail(email)} id="email" type="email" label="Email"
                 onChange={handleEmail} currentValue={email}
                 successMessage='Your email address is valid'
                 invalidMessage='This emails address is not valid'
                 warningMessage='Please enter a valid email address'
-                />
+            />
+
             <Input required={subjectReq} valid={subject.length > 0} id="subject" type="text" label="Subject"
                 onChange={handleSubject} currentValue={subject}
                 successMessage='Your subject is valid'
@@ -158,12 +174,14 @@ export function Form() {
                 successMessage='Your message is valid'
                 invalidMessage='Enter more than 30 characters'
                 warningMessage='Enter more than 30 characters'
-                />
+            />
+
             <button className="mx-auto text-slate-300 w-fit px-5 rounded-sm py-3 flex items-center gap-2
             border-none bg-gradient-to-r from-cyan-500 to-cyan-700
+            disabled:cursor-not-allowed disabled:opacity-70
             hover:from-cyan-400 hover:to-cyan-500 font-bold hover:text-white transition-all duration-150
             active:ring-cyan-200/80 active:ring-2 ring-offset-1">
-                <FaPaperPlane /> SEND MESSAGE
+                <FaPaperPlane /> {isSending ? 'SENDING...' : 'SEND MESSAGE'}
             </button>
         </form>
     )

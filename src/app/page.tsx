@@ -40,6 +40,30 @@ export default function Home() {
   const handleNav = () => {
     setIsOpen(!isOpen);
   }
+  
+
+function calculer (ex: Array<number>) {
+  const result = [];
+  console.log(ex);
+  const unicNumber = (n: number) => {
+    if (n < 10) return n;
+    
+    let gt = `${n}`.split('').map(e => +e);
+    return gt.reduce((a, b) => a+b);
+  }
+  for (let i = 0; i < ex.length; i++) {
+      const start = ex[i];
+      const next = ex[i + 1];
+      if (next) {
+        result.push(unicNumber(start + next));
+      } else {
+        if (result.length > 0) {
+          calculer(result);
+        }
+      }
+  }
+}
+calculer([ 5, 1, 1, 2, 6])
 
   return (
     
