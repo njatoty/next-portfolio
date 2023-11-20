@@ -1,5 +1,5 @@
 export async function sendContactForm(data: any) {
-    console.log(data)
+    console.log(JSON.stringify(data))
     await fetch('/api/contact', {
         method: 'POST',
         headers: {
