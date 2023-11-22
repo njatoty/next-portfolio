@@ -12,6 +12,7 @@ import WorkItem from "./components/WorkItem";
 import { Form } from "./components/Input";
 import SocialMediaLink from "./components/SocialMediaLink";
 import ThemeSwitcherButton from "./components/ThemeSwitcherButton";
+import data from "./utils/data"
 
 export default function Home() {
   
@@ -210,19 +211,42 @@ calculer([ 5, 1, 1, 2, 6])
                   <p className="text-slate-600 dark:text-slate-300 italic">I value simple content structure, clean design patterns, and thoughtful interactions.</p>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-cyan-600/70 font-semibold">Things i like to design</h3>
-                  <p className="text-slate-800 dark:text-slate-200">Logos, Web, UI, UX</p>
+                  <h3 className="text-cyan-600 font-semibold">Things i like to design</h3>
+                  <p className="text-slate-800 dark:text-slate-200">
+                    {data.frontend.desires.join(', ')}
+                  </p>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-cyan-600/70 font-semibold">Dev tools:</h3>
+                  <h3 className="text-cyan-600 font-semibold">Languages i use</h3>
+                  <div className="px-4">
+                    {data.frontend.languages.map((lang, index) =>
+                      <div key={index} className="flex items-center justify-center gap-5">
+                        <p className="flex-1 text-slate-800 dark:text-slate-200 text-right ml-auto">
+                          {lang.title}
+                        </p>
+                        {/* percentage */}
+                        <div className="flex-1 ">
+                          <div className="rounded-full w-16 h-3 bg-cyan-100 dark:bg-cyan-950 relative overflow-hidden mr-auto">
+                            <div className="bg-cyan-600 dark:bg-cyan-700 absolute top-0 left-0 h-4"
+                            style={{ width: `${lang.note}%`}}
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="text-center">
+                  <h3 className="text-cyan-600 font-semibold">Design tools:</h3>
                   <ul className="text-slate-800 dark:text-slate-200">
-                      <li>PHOTOSHOP CC & CS6</li>
-                      <li>Visual Studio Code</li>
-                      <li>Pen & paper</li>
-                      <li>Bootstrap</li>
-                      <li>Tailwind</li>
-                      <li>Fontawesome</li>
-                      <li>Heroicons</li>
+                    {
+                      data.frontend.tools.map((tool, index) => 
+                        <li key={index} className="flex-col items-center gap-3">
+                          <p className="font-semibold">{tool.title}:</p>
+                          <p>{tool.data.join(', ')}</p>
+                        </li>
+                      )
+                    }
                   </ul>
                 </div>
               </div>
@@ -235,22 +259,44 @@ calculer([ 5, 1, 1, 2, 6])
                   <p className="text-slate-600 dark:text-slate-300 italic">I like to code things from scratch, and enjoy bringing ideas to life in the browser</p>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-cyan-600/70 font-semibold">Languages i use</h3>
-                  <p className="text-slate-800 dark:text-slate-200">
-                    HTML, CSS, <br />
-                    Javascript (Nodejs, ReactJS, Nextjs), <br />
-                    PHP (Codeigniter 4), <br />
-                    MySQL, MongoDB
-                  </p>
+                  <h3 className="text-cyan-600 font-semibold">Languages i use</h3>
+                  <div className="px-4">
+                    {
+                      data.backend.languages.map((lang, index) =>
+                        <div key={index}>
+                          <p className="font-semibold text-slate-800 dark:text-slate-200 my-1">{lang.title}:</p>
+                          {
+                            lang.data.map((langItem, index) =>
+                            <div key={index} className="flex items-center justify-center gap-5">
+                              <p className="flex-1 text-slate-800 dark:text-slate-200 text-right ml-auto">
+                                {langItem.title}
+                              </p>
+                              {/* percentage */}
+                              <div className="flex-1 ">
+                                <div className="rounded-full w-16 h-3 bg-cyan-100 dark:bg-cyan-950 relative overflow-hidden mr-auto">
+                                  <div className="bg-cyan-600 dark:bg-cyan-700 absolute top-0 left-0 h-4"
+                                  style={{ width: `${langItem.note}%`}}
+                                  ></div>
+                                </div>
+                              </div>
+                            </div>
+                          )
+                          }
+                        </div>
+                    )}
+                  </div>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-cyan-600/70 font-semibold">Design tools:</h3>
+                  <h3 className="text-cyan-600 font-semibold">Development tools:</h3>
                   <ul className="text-slate-800 dark:text-slate-200">
-                      <li>PHOTOSHOP CC & CS6</li>
-                      <li>Visual Studio Code</li>
-                      <li>Pen & paper</li>
-                      <li>Bootstrap</li>
-                      <li>Fontawesome</li>
+                    {
+                      data.backend.tools.map((tool, index) => 
+                        <li key={index} className="flex-col items-center gap-3">
+                          <p className="font-semibold">{tool.title}:</p>
+                          <p>{tool.data.join(', ')}</p>
+                        </li>
+                      )
+                    }
                   </ul>
                 </div>
               </div>
@@ -308,7 +354,7 @@ calculer([ 5, 1, 1, 2, 6])
                 </div>
                 <div className="paragraph">
                   <p>
-                    A simple web application where an user can play by answering questions on various topics.
+                    A simple web application where a n user can play by answering questions on various topics.
                     The user select an answer from a list of options in order to move on to the next question.
                     However, there is a countdown for each question, if the user doesn't select any answer within 15 seconds,
                     the next question will show up until the app gives the feedback on the topic chosen by the user.
