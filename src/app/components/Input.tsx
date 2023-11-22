@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { FaCheck, FaExclamationTriangle, FaFly, FaPaperPlane, FaTimesCircle } from 'react-icons/fa';
 import { sendContactForm } from '../config/contact';
 import Emailjs from '@emailjs/browser'
+import { motion } from 'framer-motion';
 
 type Props = {
     label: string,
@@ -140,6 +141,10 @@ export function Form() {
             Emailjs.send('service_37ngg9a', 'template_nydzllt', templateParams, 'JYhYB-wJoLEFWEvhU')
             .then((result) => {
                 alert("message sent")
+                setName('');
+                setMessage('');
+                setEmail('');
+                setSubject('')
             }).catch(err => {
                 console.log(err)
             }).finally(() => {
