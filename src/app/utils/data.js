@@ -121,4 +121,32 @@ publicData.frontend = {
     ]
 }
 
+publicData.work = [
+    {
+        title: 'QUIZ game',
+        description: `A simple web application where an user can play by answering questions on various topics.`,
+        made: `This application is built by using <b>React</b>.`,
+        image: `work-2.png`,
+        github: ``,
+        link: ``
+    },
+    {
+        title: 'Football pronostic',
+        description: `Dragging and dropping flag in some fields to generate a random score result `,
+        made: `This application is built by using <b>Vanilla Javascript</b>.`,
+        image: `pronostic.png`,
+        github: ``,
+        link: ``
+    },
+    {
+        title: 'Countdown & Stopwatch ',
+        description: `Dragging and dropping flag in some fields to generate a random score result `,
+        made: `This application is built by using <b>Vanilla Javascript</b>.`,
+        image: `time.png`,
+        github: ``,
+        link: ``
+    },
+
+]
+
 module.exports = publicData;

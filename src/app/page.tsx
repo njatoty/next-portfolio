@@ -13,6 +13,7 @@ import { Form } from "./components/Input";
 import SocialMediaLink from "./components/SocialMediaLink";
 import ThemeSwitcherButton from "./components/ThemeSwitcherButton";
 import data from "./utils/data"
+import publicData from "./utils/data";
 
 export default function Home() {
   
@@ -68,7 +69,7 @@ calculer([ 5, 1, 1, 2, 6])
 
   return (
     
-    <main className="flex min-h-screen flex-col items-center justify-between bg-white dark:bg-slate-900 overflow-x-hidden">
+    <main className="flex min-h-screen flex-col items-center justify-between bg-white dark:bg-gray-900 overflow-x-hidden">
       <div className="header flex items-center justify-between fixed w-full px-4 md:px-8 lg:px-10 py-2 md:py-3 z-50
        bg-white/30 dark:bg-slate-950/30 border-b border-slate-300 dark:border-slate-700/80 backdrop-blur-md">
         <div className="logo p-1">
@@ -155,6 +156,17 @@ calculer([ 5, 1, 1, 2, 6])
           <h1 className="text-center text-4xl sm:text-5xl xl:text-6xl text-slate-700 dark:text-slate-100 px-10">A Full stack Web Developer</h1>
           <p className="text-center text-lg md:text-xl text-slate-500 italic my-3 md:my-8 px-3">I design and code beautifully simple things, I am passionate about my work.</p>
           <Image alt="profile" src={image} className="my-6 rounded-full border-[3px] border-cyan-900/50 w-44 h-w-44 md:w-60 md:h-60 lg:w-72 lg:h-72"  />
+          <div className="flex items-center justify-center gap-3">
+            <span className="flex-shrink-0 bg-cyan-700 h-2 w-2 rotate-45 opacity-30"></span>
+            <span className="flex-shrink-0 bg-cyan-700 h-4 w-4 rotate-45 opacity-40"></span>
+            <span className="flex-shrink-0 bg-cyan-700 h-5 w-5 rotate-45 opacity-60"></span>
+            <span className="flex-shrink-0 bg-cyan-700 h-6 w-6 rotate-45 mr-6 opacity-70"></span>
+            <a href="#" className="my-4 cv-button font-semibold">Download my CV </a>
+            <span className="flex-shrink-0 bg-cyan-700 h-6 w-6 rotate-45 ml-6 opacity-70"></span>
+            <span className="flex-shrink-0 bg-cyan-700 h-5 w-5 rotate-45 opacity-60"></span>
+            <span className="flex-shrink-0 bg-cyan-700 h-4 w-4 rotate-45 opacity-40"></span>
+            <span className="flex-shrink-0 bg-cyan-700 h-2 w-2 rotate-45 opacity-30"></span>
+          </div>
           <div className="social flex items-center justify-center gap-4 sm:gap-6 my-4">
             <Link href="#" className="social-media-item">
               <FaLinkedin className="social-media-icon" />
@@ -172,15 +184,15 @@ calculer([ 5, 1, 1, 2, 6])
         </div>
       </div>
       {/* ABOUT */}
-      <fieldset id='about' className="section w-full min-h-[50vh] bg-slate-200 dark:bg-[#102236] pb-16">
+      <fieldset id='about' className="section w-full min-h-[50vh] bg-slate-200 dark:bg-gray-900 pb-16" style={bgImageContact}>
         <legend className="text-center w-full">
           <div className="w-full flex flex-col items-center justify-center relative">
-            <div className="section-tag bg-white dark:bg-slate-200 border-slate-200 dark:border-[#102236]">
+            <div className="section-tag bg-white dark:bg-slate-200 border-slate-200 dark:border-gray-900">
               <IdentificationIcon className="w-8 h-8 lg:w-10 lg:h-10 text-cyan-800" />
             </div>
           </div>
         </legend>
-        <div className="px-4 md:px-12">
+        <div className="px-8 md:px-12">
             <h1 className="text-cyan-800 dark:text-cyan-200/50 text-center mx-auto italic text-xl lg:text-2xl">About</h1>
             <div className="my-12 lg:my-14 text-slate-800 dark:text-slate-300 text-justify text-sm md:text-lg lg:text-xl flex flex-col gap-4">
               <p>I started coding at 19 years old and I became a web developer with 2 years of experience. I specialize in full stack developer and have worked on building web-based plateforms for data entry, and for task planning.</p>
@@ -192,7 +204,7 @@ calculer([ 5, 1, 1, 2, 6])
 
       {/* SKILL */}
       <fieldset id="skill" className="section w-full">
-        <legend className="text-center bg-gradient-to-b from-slate-200 dark:from-[#102236] from-50% to-transparent to-50% w-full">
+        <legend className="text-center bg-gradient-to-b from-slate-200 dark:from-gray-900 from-50% to-transparent to-50% w-full">
           <div className="w-full flex flex-col items-center justify-center relative">
             <div className="section-tag border-white dark:border-slate-900 bg-slate-200 dark:bg-slate-200">
               <BookOpenIcon className="w-8 h-8 lg:w-10 lg:h-10 text-cyan-800" />
@@ -305,44 +317,22 @@ calculer([ 5, 1, 1, 2, 6])
       </fieldset>
       
       {/* WORK */}
-      <fieldset id="work" className="section w-full min-h-screen bg-slate-200 dark:bg-[#102236]">
+      <fieldset id="work" className="section w-full min-h-screen bg-slate-200 dark:bg-gray-900">
         <legend className="text-center w-full">
           <div className="w-full flex flex-col items-center justify-center relative">
-            <div className="section-tag border-slate-200 dark:border-[#102236] bg-white dark:bg-slate-200">
+            <div className="section-tag border-slate-200 dark:border-gray-900 bg-white dark:bg-slate-200">
               <BriefcaseIcon className="w-8 h-8 lg:w-10 lg:h-10 text-cyan-800" />
             </div>
           </div>
         </legend>
-        <div className="px-3 md:px-12">
+        <div className="px-8 md:px-12">
           <h1 className="text-cyan-800 dark:text-cyan-200/50 text-center mx-auto italic text-xl lg:text-2xl">Work</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-14">
-            <div className="w-full px-2 py-1">
-              <div className="title">
-                <h1 className="text-cyan-600 text-xl">QUIZ game</h1>
-                <div className="link flex justify-between gap-4">
-                  <Link href="#" className="text-slate-500 hover:text-cyan-700">
-                    <GlobeAltIcon className="w-6 h-6" />
-                  </Link>
-                  <Link href="#" className="text-slate-500 hover:text-cyan-700">
-                    <CodeBracketIcon className="w-6 h-6" />
-                  </Link>
-                </div>
-              </div>
-              <div className="paragraph">
-                <p>
-                  A simple web application where an user can play by answering questions on various topics.
-                  The user select an answer from a list of options in order to move on to the next question.
-                  However, there is a countdown for each question, if the user doesn't select any answer within 15 seconds,
-                  the next question will show up until the app gives the feedback on the topic chosen by the user.
-                </p>
-                <p>This application is built by using <b>React</b>.</p>
-              </div>
-              <WorkItem demo="" github="" img={pl} />
-            </div>
-            
-            <div className="w-full px-2 py-1">
+            {
+              publicData.work.map((work, index) =>   
+              <div className="w-full px-2 py-1" key={index}>
                 <div className="title">
-                  <h1 className="text-cyan-600 text-xl">Quiz game</h1>
+                  <h1 className="text-cyan-600 text-xl">{work.title}</h1>
                   <div className="link flex justify-between gap-4">
                     <Link href="#" className="text-slate-500 hover:text-cyan-700">
                       <GlobeAltIcon className="w-6 h-6" />
@@ -353,25 +343,22 @@ calculer([ 5, 1, 1, 2, 6])
                   </div>
                 </div>
                 <div className="paragraph">
-                  <p>
-                    A simple web application where a n user can play by answering questions on various topics.
-                    The user select an answer from a list of options in order to move on to the next question.
-                    However, there is a countdown for each question, if the user doesn't select any answer within 15 seconds,
-                    the next question will show up until the app gives the feedback on the topic chosen by the user.
-                  </p>
-                  <p>This application is built by using <b>React</b>.</p>
+                  <p>{work.description}</p>
+                  <p dangerouslySetInnerHTML={{__html: work.made}}></p>
                 </div>
-                <WorkItem demo="" github="" img={pl} />
+                <WorkItem demo={work.link} github={work.github} img={`/images/${work.image}`} />
               </div>
+              )
+            }
           </div>
         </div>
       </fieldset>
       
       {/* CONTACT */}
       <fieldset id="contact" className="section w-full bg-transparent pb-16">
-        <legend className="text-center bg-gradient-to-b from-slate-200 dark:from-[#102236] from-50% to-transparent to-50% w-full">
+        <legend className="text-center bg-gradient-to-b from-slate-200 dark:from-gray-900 from-50% to-transparent to-50% w-full">
           <div className="w-full flex flex-col items-center justify-center relative">
-            <div className="section-tag bg-slate-200 border-white dark:border-[#102236]">
+            <div className="section-tag bg-slate-200 border-white dark:border-gray-900">
               <PhoneIcon className="w-8 h-8 lg:w-10 lg:h-10 text-cyan-900" />
             </div>
           </div>
