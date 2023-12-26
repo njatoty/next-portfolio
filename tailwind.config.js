@@ -13,7 +13,33 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        'dark': '#111827',
+        'primary': '#9F81CD',
+        'secondary': '#766DC1',
+        'warning': '#EBB2D6',
+        'danger': '#F198AF',
+        'light': '#FBD1D3'
+      },
+      backgroundColor: {
+        'dark': '#111827',
+        'primary': '#9F81CD',
+        'secondary': '#766DC1',
+        'warning': '#EBB2D6',
+        'danger': '#F198AF',
+        'light': '#FBD1D3'
+      },
+      borderColor: {
+        'dark': '#111827',
+        'primary': '#9F81CD',
+        'secondary': '#766DC1',
+        'warning': '#EBB2D6',
+        'danger': '#F198AF',
+        'light': '#FBD1D3'
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-clip-path')
+  ],
 }
