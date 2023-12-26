@@ -70,9 +70,9 @@ export default function Home() {
 
   return (
     
-    <main className="flex min-h-screen flex-col items-center justify-between bg-gray-900 antialiased">
+    <main className="flex min-h-screen flex-col items-center bg-gray-900 antialiased">
       <div ref={navRef} className={`header flex items-center justify-between w-full px-4 md:px-8 lg:px-10 z-50
-       mt-10 transition-all ease-in duration-0 border-transparent backdrop-blur-md`}>
+       absolute top-11 left-0 transition-all ease-in duration-0 border-transparent`}>
         <div className="logo p-1">
           <div className="flex items-center justify-center gap-2">
             <Image src={logo} alt="logo" height={100} width={100} className="w-9 h-9 md:w-12 md:h-12 lg:w-14 lg:h-14" />
@@ -159,7 +159,7 @@ export default function Home() {
         </div>
       </div>
       {/* Header section */}
-      <div id="home" ref={homeRef} className="w-full min-h-screen flex items-center justify-center bg-transparent home bg-dark" style={bgImageStyle}>
+      <div id="home" ref={homeRef} className="w-full min-h-[756px] h-[100svh] flex items-center justify-center bg-transparent home bg-dark" style={bgImageStyle}>
         <div className="section flex items-center justify-center max-md:flex-col px-10 max-md:px-5 overflow-x-hidden">
           <div className="left-side flex-1">
             <p className="text-left text-slate-300 max-md:text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl">
@@ -236,8 +236,8 @@ export default function Home() {
       </div>
       {/* ABOUT */}
       <div id='about' className="w-full min-h-screen justify-center flex bg-white about">
-        <div className="section px-8 md:px-12 my-auto">
-            <h1 className="mb-8 text-center font-bold text-2xl lg:text-3xl xl:text-4xl text-dark max-md:text-center">About me</h1>
+        <div className="section my-auto">
+            <h1 className="my-4 md:my-0 mb-8 text-center font-bold text-2xl lg:text-3xl xl:text-4xl text-dark max-md:text-center">About me</h1>
             <div className="responsive-text flex items-center max-md:flex-wrap md:gap-2 gap-1">
               <div className="flex-grow px-1">
                 <div className="about-item flex-grow text-dark text-justify flex flex-col gap-4">
@@ -280,7 +280,7 @@ export default function Home() {
 
       {/* SKILL */}
       <div id="skill" className="w-full flex flex-col skill">
-        <div className="section px-4 md:px-8">
+        <div className="section">
             <h1 className="mb-8 text-center font-bold text-2xl lg:text-3xl xl:text-4xl text-white max-md:text-center">My skills</h1>
             <div className="responsive-text w-full flex-grow flex flex-col mx-auto bg-white p-6 md:p-8 lg:p-14 mb-12" style={bgImageSkill}>
               <div className="skill-card frontend">
@@ -393,7 +393,7 @@ export default function Home() {
       
       {/* WORK */}
       <div id="work" className="w-full min-h-screen work">
-        <div className="section px-4 md:px-8">
+        <div className="section">
           <h1 className="mb-8 text-center font-bold text-2xl lg:text-3xl xl:text-4xl text-primary max-md:text-center">My works</h1>
           <div className="responsive-text grid max-sm:grid-cols-1 grid-cols-2 lg:grid-cols-3 gap-4 py-8">
             {
@@ -448,7 +448,7 @@ export default function Home() {
       
       {/* CONTACT */}
       <div id="contact" className="w-full contact min-h-screen">
-        <div className="section px-1 md:px-12">
+        <div className="section">
             <h1 className="mb-8 text-center font-bold text-2xl lg:text-3xl xl:text-4xl text-primary max-md:text-center">Contact</h1>
             <div className="flex flex-col items-center gap-0 bg-white">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0 w-full">
