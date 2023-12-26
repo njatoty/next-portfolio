@@ -1,13 +1,13 @@
 const publicData = {};
 
 publicData.backend = {
-    desires: ['Web Application', 'API'],
+    desires: ['Database Management', 'Web APIs (using frameworks like Express or Fastify from Nodejs)', 'Authentification Systems', 'and Real-time Applications'],
     languages: [
         {
             title: 'Javascript/Typescript',
             data: [
                 {
-                    title: 'JavaScript',
+                    title: 'JavaScript (Es6)',
                     note: 90,
                 },
                 {
@@ -19,11 +19,11 @@ publicData.backend = {
                     note: 70,
                 },
                 {
-                    title: 'NodeJS',
+                    title: 'Nodejs',
                     note: 70,
                 },
                 {
-                    title: 'Nextjs',
+                    title: 'Nextjs (13 and latest)',
                     note: 60
                 },
             ]
@@ -32,7 +32,7 @@ publicData.backend = {
             title: 'PHP',
             data: [
                 {
-                    title: 'PHP 7',
+                    title: 'PHP (7 and latest)',
                     note: 80
                 },
                 {
@@ -46,6 +46,10 @@ publicData.backend = {
             data: [
                 {
                     title: 'MySQL',
+                    note: 60
+                },
+                {
+                    title: 'Firebase',
                     note: 60
                 },
                 {
@@ -89,25 +93,32 @@ publicData.frontend = {
     desires: ['Website', 'User Interface (UI)', 'User Experience (UX)', 'Responsive Design', 'and Client requirements'],
     languages: [
         {
-            title: 'HTML',
-            note: 100,
+            title: 'Foundational technologies',
+            data: [
+                {
+                    title: 'HTML',
+                    note: 100,
+                },
+                {
+                    title: 'CSS',
+                    note: 90,
+                }
+            ]
         },
         {
-            title: 'CSS',
-            note: 90,
-        },
-        {
-            title: 'JavaScript',
-            note: 80,
-        },
-        {
-            title: 'Reactjs',
-            note: 70,
-        },
-        {
-            title: 'ReactNative',
-            note: 50,
-        },
+            title: 'Frameworks',
+            data: [
+                {
+                    title: 'Reactjs',
+                    note: 70,
+                },
+                {
+                    title: 'ReactNative',
+                    note: 50,
+                },
+            ]
+
+        }
     ],
     tools: [
         {
@@ -124,25 +135,40 @@ publicData.frontend = {
 publicData.work = [
     {
         title: 'QUIZ game',
-        description: `A simple web application where an user can play by answering questions on various topics.`,
-        made: `This application is built by using <b>React</b>.`,
-        image: `work-2.png`,
+        description: `Created a simple web application in which an user can play by answering questions on various topics.`,
+        key: [
+            "Developed a user-friendly interface",
+            "Responsive design ensuring"
+        ],
+        techStack: ['Reactjs'],
+        libraries: [],
+        image: [`quiz.png`],
         github: ``,
         link: ``
     },
     {
-        title: 'Football pronostic',
-        description: `Dragging and dropping flag in some fields to generate a random score result `,
-        made: `This application is built by using <b>Vanilla Javascript</b>.`,
-        image: `pronostic.png`,
+        title: 'Stock management',
+        description: `Created an web application for tracking, monitoring, and managing inventory or stock withing a business.`,
+        key: [
+            "Developed a user-friendly interface",
+            "Responsive design ensuring"
+        ],
+        techStack: ['Nextjs', 'Prisma'],
+        libraries: ['next-auth', 'xls-populate', 'framer-motion', 'react-icons'],
+        image: ['fastinfo/1.png', 'fastinfo/2.png', 'fastinfo/3.png', 'fastinfo/4.png', 'fastinfo/5.png'],
         github: ``,
         link: ``
     },
     {
-        title: 'Countdown & Stopwatch ',
-        description: `Dragging and dropping flag in some fields to generate a random score result `,
-        made: `This application is built by using <b>Vanilla Javascript</b>.`,
-        image: `time.png`,
+        title: 'Scheduler',
+        description: `Created web application for managing time an making your timetable. This is similar to Outlook Calendar.`,
+        key: [
+            "Developed a user-friendly interface",
+            "Responsive design ensuring"
+        ],
+        techStack: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express.js', 'MongoDB', ''],
+        libraries: ['@toast-ui/calendar', 'axios'],
+        image: [`uischeduler.jpeg`],
         github: ``,
         link: ``
     },

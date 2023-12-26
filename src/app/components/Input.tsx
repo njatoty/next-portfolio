@@ -38,14 +38,14 @@ export function Input({id, label, type, valid, onChange, currentValue, required,
     return (
         <div className='py-1 md:py-2 relative w-full'>
             <label htmlFor={id} className={`absolute transition-all ease-in duration-200 px-2 rounded-md left-2
-            ${isFocused || currentValue.trim().length > 0 ? '-top-1 text-slate-200 bg-cyan-600/80 text-sm' : 'top-5 text-slate-400 dark:text-slate-600 bg-transparent'}`}>{label}</label>
+            ${isFocused || currentValue.trim().length > 0 ? '-top-1 text-slate-200 bg-primary text-sm' : 'top-5 text-slate-400 bg-transparent'}`}>{label}</label>
             {
                 type === 'textarea' ? (
-                    <textarea id={id} className={`${!isFocused && isReq ? 'border-red-400/50' : 'border-cyan-700/50'} input resize-none`}
+                    <textarea id={id} className={`${!isFocused && isReq ? 'border-danger' : 'border-gray-200'} input resize-none`}
                     rows={4} onBlur={() => setIsFocused(false)} onFocus={() => setIsFocused(true)}
                     onChange={(e) => handleChange(e.currentTarget.value)}  />
                 ) : (
-                    <input id={id} type={type} className={`${!isFocused && isReq ? 'border-red-400/50' : 'border-cyan-700/50'} input`}
+                    <input id={id} type={type} className={`${!isFocused && isReq ? 'border-danger' : 'border-gray-200'} input`}
                     onBlur={() => setIsFocused(false)} onFocus={() => setIsFocused(true)}
                     onChange={(e) => handleChange(e.currentTarget.value)} />
                 )
@@ -53,9 +53,9 @@ export function Input({id, label, type, valid, onChange, currentValue, required,
             {
                 !isFocused && isReq && 
                 <>
-                    <small className='text-red-500/80 px-2'>{ warningMessage }</small>
+                    <small className='text-danger px-2'>{ warningMessage }</small>
                     <span className='p-2 flex gap-2 absolute right-2 top-4'>
-                        <FaTimesCircle className='w-4 h-4 text-red-500/60'/>
+                        <FaTimesCircle className='w-4 h-4 text-danger'/>
                     </span>
                 </>
             }
